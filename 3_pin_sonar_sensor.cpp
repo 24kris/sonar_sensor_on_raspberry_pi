@@ -17,7 +17,7 @@ int main(void){
                 digitalWrite( pin,0 );
                 delayMicroseconds( 2 );
                 digitalWrite( pin, 1 );
-                delayMicroseconds( 5 );
+                delayMicroseconds( 5 );  //change 5 microseconds delay to the timerequired by your sensor's trigger pin to send a pulse 
                 digitalWrite( pin, 0 );
                 pinMode( pin, INPUT );
                 bool goodread= true;
