@@ -19,7 +19,7 @@ while 1:
         #send signal
         GPIO.output(tpin, 1)
 
-        time.sleep(0.000005)
+        time.sleep(0.000005) #change 5 microseconds delay to the timerequired by your sensor's trigger pin to send a pulse
 
         GPIO.output(tpin, 0)
 
