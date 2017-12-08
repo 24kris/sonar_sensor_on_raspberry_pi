@@ -19,7 +19,7 @@ int main(void){
                 digitalWrite( tpin, 0 );
                 delayMicroseconds( 2 );
                 digitalWrite( tpin, 1 );
-                delayMicroseconds( 5 );
+                delayMicroseconds( 5 ); //change 5 microseconds delay to the timerequired by your sensor's trigger pin to send a pulse
                 digitalWrite( tpin, 0 );
                 bool goodread= true;
                 unsigned long int watchtime= micros();
