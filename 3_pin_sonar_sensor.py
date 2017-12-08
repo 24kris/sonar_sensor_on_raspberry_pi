@@ -1,3 +1,4 @@
+#read the readme.txt file
 import time
 import RPi.GPIO as GPIO
 
