@@ -4,25 +4,27 @@
 
 
 using namespace std;
-//attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V of RaspberryPi,  GND pin at RaspberryPi, signal pin at GPIO4(pin 7)
+//attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V of RaspberryPi,  GND pin at RaspberryPi, trigger pin at GPIO4(pin 7), echo pin at GPIO3(pin 5)
+
 int main(void){
         wiringPiSetup();
         unsigned int timeout = 20000;
-        int pin = 7;
-
+        int tpin = 7; //trigger pin
+	int epin = 5; //echo pin
         while(1){
 
 		unsigned long int starttime, endtime;
-                pinMode( pin, OUTPUT );
-                digitalWrite( pin,0 );
+                pinMode( tpin, OUTPUT );
+		pinMode( epin, INPUT );
+                digitalWrite( tpin, 0 );
                 delayMicroseconds( 2 );
-                digitalWrite( pin, 1 );
+                digitalWrite( tpin, 1 );
                 delayMicroseconds( 5 );
-                digitalWrite( pin, 0 );
-                pinMode( pin, INPUT );
+                digitalWrite( tpin, 0 );
                 bool goodread= true;
                 unsigned long int watchtime= micros();
-                while(digitalRead(pin)==0 && goodread){
+
+                while(digitalRead(epin)==0 && goodread){
                         starttime= micros();
                         if(starttime-watchtime > timeout){
                                 goodread= false;
@@ -30,7 +32,7 @@ int main(void){
                 }
                 if(goodread){
                         watchtime=micros();
-                        while(digitalRead(pin) && goodread){
+                        while(digitalRead(epin) && goodread){
                                 endtime= micros();
                                 if(endtime-watchtime>timeout){
                                         goodread= false;
