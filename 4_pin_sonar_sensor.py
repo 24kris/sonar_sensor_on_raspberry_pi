@@ -5,9 +5,9 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 timeout = 0.020
-#attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V(with voltage divider from signal of 3.3V) of RaspberryPi,  GND pin at RaspberryPi, trigger pin at GPIO4(tpin 7), echo pin at GPIO3(epin 5) 
+#attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V(with voltage divider from signal of 3.3V) of RaspberryPi,  GND pin at RaspberryPi, trigger pin at GPIO4(pin 7), echo pin at GPIO27(pin 13) 
 tpin = 7 # named pin7 as tpin
-epin = 5 # named pin5 as epin
+epin = 13 # named pin13 as epin
 while 1:
         GPIO.setup(tpin, GPIO.OUT)
 	GPIO.setup(epin, GPIO.IN)

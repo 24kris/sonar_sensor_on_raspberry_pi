@@ -4,13 +4,13 @@
 
 
 using namespace std;
-//attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V of RaspberryPi,  GND pin at RaspberryPi, trigger pin at GPIO4(pin 7), echo pin at GPIO3(pin 5)
+//attach sonar sensor's Vcc pin at 3.3V(recommended) or at 5V of RaspberryPi,  GND pin at RaspberryPi, trigger pin at GPIO4(pin 7), echo pin at GPIO27(pin 13)
 
 int main(void){
         wiringPiSetup();
         unsigned int timeout = 20000;
         int tpin = 7; //trigger pin
-	int epin = 5; //echo pin
+	int epin = 13; //echo pin
         while(1){
 
 		unsigned long int starttime, endtime;
